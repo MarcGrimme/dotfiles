@@ -78,6 +78,8 @@ Plugin 'raimondi/delimitmate'
 Plugin 'jiangmiao/auto-pairs'
 " grammarly similar https://github.com/rhysd/vim-grammarous
 Plugin 'rhysd/vim-grammarous'
+" Dockerfiles syntax and other sugar https://github.com/ekalinin/Dockerfile.vim
+Plugin 'ekalinin/Dockerfile.vim'
 
 call vundle#end()
 
@@ -210,5 +212,7 @@ so ~/.vim/settings/rspec.vim
 so ~/.vim/settings/splitjoin.vim
 so ~/.vim/settings/delimitmate.vim
 so ~/.vim/settings/polyglot.vim
+so ~/.vim/settings/markdown.vim
 so ~/.vim/settings/switch.vim
 so ~/.vim/settings/tabular.vim
+so ~/.vim/settings/dockerfile.vim
