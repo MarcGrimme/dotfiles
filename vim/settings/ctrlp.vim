@@ -11,5 +11,5 @@ let g:ctrlp_user_command={
     \   1: ['.git', 'cd %s && git ls-files . -co --exclude-standard'],
     \   2: ['.hg', 'hg --cwd %s locate -I .'],
     \ },
-    \ 'fallback': 'ag %s -l --nocolor -g ""'
+    \ 'fallback': 'grep %s -l ""'
     \ }
