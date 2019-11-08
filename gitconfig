@@ -1,6 +1,6 @@
 [user]
 	name = Marc Grimme
-	email = grimme@fidor.com
+	email = grimme@google.com
 [diff]
 	tool = meld
 [merge]
@@ -24,3 +24,5 @@
 	excludesfile = ~/.gitignore
 [push]
 	default = simple
+[http]
+	cookiefile = /home/marcgrimme/.gitcookies
