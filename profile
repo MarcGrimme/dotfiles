@@ -21,8 +21,8 @@ if [ -d "$HOME/bin" ] ; then
     PATH="$HOME/bin:$PATH"
 fi
 
-if [ -d "$HOME/profile.d" ]; then
-  for file in $HOME/profile.d/*.sh; do
+if [ -d "$HOME/.profile.d" ]; then
+    for file in $HOME/.profile.d/*.sh; do
     . $file
   done
 fi
