@@ -1,5 +1,5 @@
 #!/bin/bash
-DOTFILES_DIR=${DOTFILES_DIR:-src/dotfiles}
+DOTFILES_DIR=${DOTFILES_DIR:-$HOME/src/dotfiles}
 FILES=${FILES:-bashrc profile profile.d/google.sh gitconfig global-gitignore vim vimrc}
 PROFILE_D=${PROFILE_D:-.profile.d}
 backup() {
