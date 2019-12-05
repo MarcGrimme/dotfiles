@@ -26,3 +26,5 @@ let g:ale_open_list = 1
 " some other plugin which sets quickfix errors, etc.
 let g:ale_keep_list_window_open = 1
 
+" just run linter for the above langs
+let g:ale_linters_explicit = 1

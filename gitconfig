@@ -1,6 +1,6 @@
 [user]
 	name = Marc Grimme
-	email = grimme@google.com
+	email = marcgrimme@chromium.org
 [diff]
 	tool = meld
 [merge]
@@ -22,7 +22,9 @@
     status = auto
 [core]
 	excludesfile = ~/.gitignore
+	autocrlf = false
+	filemode = false
 [push]
 	default = simple
 [http]
-	cookiefile = /home/marcgrimme/.gitcookies
+	cookiefile = /usr/local/google/home/marcgrimme/.gitcookies

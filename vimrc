@@ -1,116 +1,115 @@
-" Use Vim settings, rather then Vi settings (much better!).
-" This must be first, because it changes other options as a side effect.
-set nocompatible
-
-filetype off                  " required
-
-" Disable completion where available.
-" This setting must be set before ALE is loaded.
-let g:ale_completion_enabled = 0
-
 " ----------
 " Bundle
 " ----------
+call plug#begin()
 
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-
-Plugin 'VundleVim/Vundle.vim'
+Plug 'VundleVim/Vundle.vim'
 " browse
-Plugin 'scrooloose/nerdtree'
+Plug 'scrooloose/nerdtree'
 " comment/uncomment
-Plugin 'scrooloose/nerdcommenter'
+Plug 'scrooloose/nerdcommenter'
 " fuzzy search
-Plugin 'ctrlpvim/ctrlp.vim'
+Plug 'ctrlpvim/ctrlp.vim'
 " pasting in vim with identation
-Plugin 'sickill/vim-pasta'
+Plug 'sickill/vim-pasta'
 " repeat special things
-Plugin 'tpope/vim-repeat'
+Plug 'tpope/vim-repeat'
 " auto end a line
-Plugin 'tpope/vim-endwise'
+Plug 'tpope/vim-endwise'
 " git wrapper
-Plugin 'tpope/vim-fugitive'
+Plug 'tpope/vim-fugitive'
 " unix shell commands in vim
-Plugin 'tpope/vim-eunuch'
+Plug 'tpope/vim-eunuch'
 " change surrounding chars
-Plugin 'tpope/vim-surround'
+Plug 'tpope/vim-surround'
 " show git changes left
-Plugin 'airblade/vim-gitgutter'
+Plug 'airblade/vim-gitgutter'
 " autocomplete via tab
-Plugin 'ervandew/supertab'
+Plug 'ervandew/supertab'
 " status tabline
-Plugin 'bling/vim-airline'
+Plug 'bling/vim-airline'
 " move parameters in functions
-Plugin 'AndrewRadev/sideways.vim'
+Plug 'AndrewRadev/sideways.vim'
 " do end to brakets and verse visa
-Plugin 'AndrewRadev/splitjoin.vim'
+Plug 'AndrewRadev/splitjoin.vim'
 " switch words under curser true -> false
-Plugin 'AndrewRadev/switch.vim'
+Plug 'AndrewRadev/switch.vim'
 " integration of ag grep
-Plugin 'rking/ag.vim'
+Plug 'rking/ag.vim'
 " puppet
-Plugin 'rodjek/vim-puppet'
+Plug 'rodjek/vim-puppet'
 " rspec
-Plugin 'thoughtbot/vim-rspec'
+Plug 'thoughtbot/vim-rspec'
 " https://github.com/ecomba/vim-ruby-refactoring
-Plugin 'ecomba/vim-ruby-refactoring'
+Plug 'ecomba/vim-ruby-refactoring'
 " close file without closing window or buffer
-Plugin 'vim-scripts/bufkill.vim'
+Plug 'vim-scripts/bufkill.vim'
 " lineup text
-Plugin 'godlygeek/tabular'
+Plug 'godlygeek/tabular'
 " markdown
-Plugin 'plasticboy/vim-markdown'
+Plug 'plasticboy/vim-markdown'
 " syntax highlighting for everything
-Plugin 'sheerun/vim-polyglot'
+Plug 'sheerun/vim-polyglot'
 " support multiple cursors
-Plugin 'terryma/vim-multiple-cursors'
+Plug 'terryma/vim-multiple-cursors'
 " show all buffers with leader-b
-Plugin 'jeetsukumaran/vim-buffergator'
+Plug 'jeetsukumaran/vim-buffergator'
 " show the identations
-Plugin 'Yggdroot/indentLine'
+Plug 'Yggdroot/indentLine'
 " linting/fixing and LSP https://github.com/w0rp/ale
-Plugin 'w0rp/ale'
+"Plugin 'w0rp/ale'
 " icons in vim
-Plugin 'ryanoasis/vim-devicons'
+Plug 'ryanoasis/vim-devicons'
 " autoclose quotes brakets, ..
-Plugin 'raimondi/delimitmate'
+Plug 'raimondi/delimitmate'
 " change something in pairs brakets, .. https://github.com/jiangmiao/auto-pairs
-Plugin 'jiangmiao/auto-pairs'
+Plug 'jiangmiao/auto-pairs'
 " grammarly similar https://github.com/rhysd/vim-grammarous
-Plugin 'rhysd/vim-grammarous'
+Plug 'rhysd/vim-grammarous'
 " Dockerfiles syntax and other sugar https://github.com/ekalinin/Dockerfile.vim
-Plugin 'ekalinin/Dockerfile.vim'
+Plug 'ekalinin/Dockerfile.vim'
+" Rudi nerd tool
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
-call vundle#end()
+call plug#end()
 
 " general options
-set nocompatible " makes Vim not compatible with Vi (usable)
+set hidden "otherwise TextEdit might fail
 set ruler " show the cursor position all the time
 set hlsearch " highlight matches when searching
 set wrap " wrapping for long lines
 set linebreak
 set number " show line numbers
 set autoindent " autoindents when continuing on a new line
-set tabstop=4 " number of spaces a tab stands for
-set shiftwidth=4 " default indentation size
+set tabstop=3 " number of spaces a tab stands for
+set shiftwidth=3 " default indentation size
+set tabpagemax=100 " max number of tabs
 set shiftround " round indent to a multiple of shiftwidth
 set expandtab " convert tabs to spaces on input
 set ignorecase " when searching ignore case
 set smartcase " when searching guess whether it's case sensitive based on whether there are capitals
 set wildmode=longest,full " BASH like autocompletion
 set backspace=indent,eol,start " for a normal backspace in insert mode
-set nobackup " don't create backup files
-set encoding=utf-8 " set the encoding for displaying
-set fileencodings=ucs-bom,utf-8,cp1251 " set the encoding for writing files
-set tabpagemax=100 " max number of tabs
-set printoptions=header:0 " don't print file header when printing
-set hidden " allow switching buffers without having to save
+set updatetime=300 " You will have bad experience for diagnostic messages when it's default 4000.
+
+" No backups to be created
+set nowritebackup
+set nobackup
+set noswapfile "don't create .swp files
 set undofile " save undo's after file closes
 set undodir=$HOME/.vim/undo " where to save undo histories
-set nolist " list disables linebreak
+
+set cmdheight=2 "Better display for messages
+set shortmess+=c "don't give |ins-completion-menu| messages.
+set signcolumn=yes " Keep sign (gutter) column visible all times
+
+set encoding=utf-8 " set the encoding for displaying
+set fileencodings=ucs-bom,utf-8,cp1251 "set the encoding for writing files
+set printoptions=header:0 " don't print file header when printing
+set hidden "allow switching buffers without having to save
+set nolist "list disables linebreak
 "set list
 "set listchars=tab:▸\ 
-set noswapfile "don't create .swp files"
 
 " add support for switching to cyrillic inside vim with C-^ and then set the default back to english
 set iminsert=0
@@ -121,8 +120,6 @@ set mouse=v " in many terminal emulators the mouse works just fine, thus enable 
 set guioptions-=T " hide the toolbar
 set guioptions+=b " horizontal scroll
 set laststatus=2 " always display the statusline
-
-set signcolumn=yes " Keep sign (gutter) column visible all times
 
 syntax on " enable syntax highlighting
 filetype plugin indent on " smart indent based on file type
@@ -205,7 +202,7 @@ so ~/.vim/settings/nerdtree.vim
 so ~/.vim/settings/fugitive.vim
 so ~/.vim/settings/multi-cursors.vim
 so ~/.vim/settings/ctrlp.vim
-so ~/.vim/settings/ale.vim
+"so ~/.vim/settings/ale.vim
 so ~/.vim/settings/ag.vim
 so ~/.vim/settings/grammarous.vim
 so ~/.vim/settings/rspec.vim
@@ -216,3 +213,4 @@ so ~/.vim/settings/markdown.vim
 so ~/.vim/settings/switch.vim
 so ~/.vim/settings/tabular.vim
 so ~/.vim/settings/dockerfile.vim
+so ~/.vim/settings/coc.vim
