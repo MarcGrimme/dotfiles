@@ -3,3 +3,6 @@ export CHROME_SRC=$HOME/src/chromium/src
 export CHROMEOS_SRC=$HOME/src/chromiumos
 
 export PATH=$PATH:$HOME/src/depot_tools
+
+# Chrome & Chrome OS build settings
+export USE_GOMA=true

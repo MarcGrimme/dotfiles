@@ -25,7 +25,7 @@ Plug 'tpope/vim-surround'
 " show git changes left
 Plug 'airblade/vim-gitgutter'
 " autocomplete via tab
-Plug 'ervandew/supertab'
+" Plug 'ervandew/supertab'
 " status tabline
 Plug 'bling/vim-airline'
 " move parameters in functions

@@ -14,6 +14,13 @@
     dyc = difftool -y --cached
     br = branch
     puff = pull --ff-only
+    cformat=cl format
+    jsformat=cl format --js
+    pformat=cl format --python
+    format=cl format;git cl format --js
+    ul=cl upload -r marcgrimme
+    amend=commit --amend --no-edit
+    odiff=diff origin/HEAD HEAD
 [log]
     date = iso
 #[format]
