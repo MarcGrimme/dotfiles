@@ -17,8 +17,8 @@
     cformat=cl format
     jsformat=cl format --js
     pformat=cl format --python
-    format=cl format;git cl format --js
-    ul=cl upload -r marcgrimme
+    format=cl format;git cl format --js;git status
+    ul=cl upload
     amend=commit --amend --no-edit
     odiff=diff origin/HEAD HEAD
 [log]

@@ -68,8 +68,11 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'rhysd/vim-grammarous'
 " Dockerfiles syntax and other sugar https://github.com/ekalinin/Dockerfile.vim
 Plug 'ekalinin/Dockerfile.vim'
-" Rudi nerd tool
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" Rudi nerd tool put out in favour of YouCompleteMe
+" Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" Integration to Google Piper
+" Plug 'piper', {'pinned': '1'}
+Plug 'ycm-core/YouCompleteMe'
 
 call plug#end()
 
@@ -125,8 +128,8 @@ syntax on " enable syntax highlighting
 filetype plugin indent on " smart indent based on file type
 " autocmd BufNewFile,BufRead *.json set filetype=javascript " enable syntax highlighting for JSON
 " a line should be no longer than 120 symbols (including <LF>)
-autocmd FileType ruby,python,javascript,java,cpp,haml,coffee setlocal textwidth=0
-autocmd FileType ruby,python,javascript,java,cpp,haml,coffee setlocal wrapmargin=0
+autocmd FileType ruby,python,javascript,haml,coffee setlocal textwidth=0
+autocmd FileType ruby,python,javascript,haml,coffee setlocal wrapmargin=0
 autocmd FileType coffee setlocal shiftwidth=2
 autocmd BufEnter * set colorcolumn=+1 " display a print margin that corresponds to 'textwidth'
 autocmd BufRead,BufNewFile *.iced setfiletype coffee
@@ -156,7 +159,7 @@ runtime macros/matchit.vim " smarter matching with % (ifs, elses...)
 filetype plugin indent on
 
 " mappings
-let mapleader = ","
+let mapleader = "\<Space>"
 
 "map <C-w> :BD<CR>
 "imap <C-w> <C-o>:BD<CR>
@@ -164,6 +167,8 @@ map <C-Tab> :wincmd w<CR>
 
 map <Leader>h :nohlsearch \| cclose<CR>
 
+" map the default C-n to Leader-n to support without C
+nmap <Leader>n <C-n>
 map <CR> o<Esc>
 map <S-CR> O<Esc>
 
@@ -188,8 +193,8 @@ noremap vv <C-v>
 map <C-v> "+p
 imap <C-v> <Esc>"+pa
 cmap <C-v> <C-r>+
-map <Home> ^
-imap <Home> <C-o>^
+" map <Home> ^
+" imap <Home> <C-o>^
 
 " support file types in ~/.vim/ftplugin
 filetype plugin indent on
@@ -213,4 +218,6 @@ so ~/.vim/settings/markdown.vim
 so ~/.vim/settings/switch.vim
 so ~/.vim/settings/tabular.vim
 so ~/.vim/settings/dockerfile.vim
-so ~/.vim/settings/coc.vim
+"so ~/.vim/settings/coc.vim
+so ~/.vim/settings/clang-format.vim
+so ~/.vim/settings/ycm.vim
