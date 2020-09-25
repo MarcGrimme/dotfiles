@@ -113,22 +113,29 @@ if ! shopt -oq posix; then
   fi
 fi
 
-SSH_ENV=~/.ssh/environment
+#SSH_ENV=~/.ssh/environment
+#
+#function start_agent {
+#	echo -n "Initializing new SSH agent..."
+#	ssh-agent | sed 's/^echo/#echo/' > "${SSH_ENV}"
+#	echo succeeded
+#	chmod 600 "${SSH_ENV}"
+#	. "${SSH_ENV}" > /dev/null
+#	/usr/bin/ssh-add ~/.ssh/id_rsa;
+#}
+#
+#if [ -f "${SSH_ENV}" ]; then
+#	. "${SSH_ENV}" > /dev/null
+#	ps -ef | grep ${SSH_AGENT_PID} | grep ssh-agent$ > /dev/null || {
+#		start_agent;
+#	}
+#else
+#	start_agent;
+#fi
 
-function start_agent {
-	echo -n "Initializing new SSH agent..."
-	ssh-agent | sed 's/^echo/#echo/' > "${SSH_ENV}"
-	echo succeeded
-	chmod 600 "${SSH_ENV}"
-	. "${SSH_ENV}" > /dev/null
-	/usr/bin/ssh-add ~/.ssh/id_rsa;
-}
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-if [ -f "${SSH_ENV}" ]; then
-	. "${SSH_ENV}" > /dev/null
-	ps -ef | grep ${SSH_AGENT_PID} | grep ssh-agent$ > /dev/null || {
-		start_agent;
-	}
-else
-	start_agent;
-fi
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"
