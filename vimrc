@@ -48,6 +48,9 @@ Plug 'vim-scripts/bufkill.vim'
 Plug 'godlygeek/tabular'
 " markdown
 Plug 'plasticboy/vim-markdown'
+" To support golang which is not properly working in ycm
+" must be before polyglot because of incompatibilities
+Plug 'fatih/vim-go'
 " syntax highlighting for everything
 Plug 'sheerun/vim-polyglot'
 " support multiple cursors
@@ -213,6 +216,7 @@ so ~/.vim/settings/grammarous.vim
 so ~/.vim/settings/rspec.vim
 so ~/.vim/settings/splitjoin.vim
 so ~/.vim/settings/delimitmate.vim
+so ~/.vim/settings/go.vim
 so ~/.vim/settings/polyglot.vim
 so ~/.vim/settings/markdown.vim
 so ~/.vim/settings/switch.vim
