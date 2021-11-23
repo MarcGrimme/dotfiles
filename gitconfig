@@ -35,3 +35,6 @@
 	default = simple
 [http]
 	cookiefile = /usr/local/google/home/marcgrimme/.gitcookies
+[repo]
+	superprojectChoiceExpire = 1634635833
+	superprojectChoice = true
