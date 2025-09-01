@@ -133,6 +133,18 @@ fi
 #	start_agent;
 #fi
 
+if [ -d "$HOME/.profile.d" ]; then
+   for file in $HOME/.profile.d/*.sh; do
+   . $file
+   done
+fi
+
+if [ -d "$HOME/tools" ]; then
+   for dir in $(find $HOME/tools -maxdepth 1 -type d); do
+      PATH="$dir:$PATH"
+   done
+fi
+
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
